@@ -1,0 +1,62 @@
+/* styles.css */
+.title {
+    text-align: center;
+    color: #2E8B57;
+    font-family: 'Arial', sans-serif;
+    font-size: 36px;
+    margin-top: 20px;
+}
+.sidebar .sidebar-content {
+    background-color: #f0f0f5;
+}
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2E8B57;
+    margin-top: 20px;
+}
+.sample-var-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 0;
+}
+.sample-var {
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #2E8B57;
+    border-radius: 5px;
+    background-color: #e0ffe0;
+    font-family: 'Courier New', monospace;
+    color: black;
+}
+.highlight {
+    color: #FF6347;
+    font-size: 20px;
+    font-weight: bold;
+}
+.result-text {
+    color: whitesmoke;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+}
+.stButton > button {
+    background-color: #2E8B57;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.5s, transform 0.5s;
+}
+.stButton > button:hover {
+    background-color: #45a049;
+    transform: scale(0.8);
+}
+.stSlider > div {
+    color: #2E8B57;
+}
+.stSlider > div > div > div > div {
+    background-color: #2E8B57;
+}
