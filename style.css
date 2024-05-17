@@ -1,62 +1,100 @@
 /* styles.css */
+body {
+    background-color: #f7f9fc;
+    font-family: 'Roboto', sans-serif;
+}
+
 .title {
     text-align: center;
-    color: #2E8B57;
-    font-family: 'Arial', sans-serif;
+    color: #3498db;
+    font-family: 'Roboto', sans-serif;
     font-size: 36px;
     margin-top: 20px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
+
 .sidebar .sidebar-content {
-    background-color: #f0f0f5;
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px; /* Add margin to create a gap */
 }
+
 .section-title {
     font-size: 18px;
     font-weight: bold;
-    color: #2E8B57;
+    color: #3498db;
     margin-top: 20px;
 }
+
 .sample-var-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: 10px 0;
 }
+
 .sample-var {
     margin: 10px;
     padding: 10px;
-    border: 2px solid #2E8B57;
+    border: 2px solid #3498db;
     border-radius: 5px;
-    background-color: #e0ffe0;
+    background-color: #eaf2f8;
     font-family: 'Courier New', monospace;
-    color: black;
+    color: #2c3e50;
+    transition: transform 0.3s;
 }
+
+.sample-var:hover {
+    transform: scale(1.05);
+}
+
 .highlight {
-    color: #FF6347;
+    color: #e74c3c;
     font-size: 20px;
     font-weight: bold;
 }
+
 .result-text {
-    color: whitesmoke;
-    font-family: 'Arial', sans-serif;
+    color: #2c3e50;
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
+    background: rgba(52, 152, 219, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
 }
+
+.result-text.accept {
+    color: #2ecc71;
+}
+
+.result-text.reject {
+    color: #e74c3c;
+}
+
 .stButton > button {
-    background-color: #2E8B57;
+    background-color: #3498db;
     color: white;
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
     font-size: 18px;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
     transition: background-color 0.5s, transform 0.3s;
 }
+
 .stButton > button:hover {
-    background-color: #45a049;
+    background-color: #2980b9;
     transform: scale(1.05);
 }
+
 .stSlider > div {
-    color: #2E8B57;
+    color: #3498db;
 }
+
 .stSlider > div > div > div > div {
-    background-color: #2E8B57;
+    background-color: #3498db;
 }
