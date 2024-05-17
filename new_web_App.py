@@ -19,7 +19,7 @@ sample_size = st.sidebar.number_input("Sample size", min_value=10, max_value=100
 
 st.sidebar.markdown("<div class='section-title'>Sampling Parameters</div>", unsafe_allow_html=True)
 no_of_samples = st.sidebar.slider("Number of samples", min_value=1, max_value=100, value=10, step=1)
-alpha = 0.05
+alpha = st.sidebar.slider("Significance level (alpha)", min_value=0.01, max_value=0.10, value=0.05, step=0.01)
 
 calculate_button = st.sidebar.button("Calculate Variance of Samples")
 
@@ -62,11 +62,11 @@ if calculate_button:
     
     # Plotting the variances
     fig, ax = plt.subplots()
-    sns.histplot(samples_variance, kde=True, color='#2E8B57', ax=ax)
-    ax.axvline(p_value, color='r', linestyle='dashed', linewidth=1, label='P-value')
-    ax.axvline(alpha, color='g', linestyle='dashed', linewidth=1, label='Alpha')
+    ax.hist(samples_variance, bins='auto', alpha=0.7, label='Sample Variances', color='#2E8B57')
+    ax.axvline(pop_variance, color='r', linestyle='dashed', linewidth=1, label='Population Variance')
+    ax.axvline(sample_mean_var, color='g', linestyle='dashed', linewidth=1, label='Mean of Sample Variances')
     ax.legend()
-    ax.set_title('Distribution of Sample Variances with KDE')
+    ax.set_title('Distribution of Sample Variances')
     ax.set_xlabel('Variance')
     ax.set_ylabel('Frequency')
     
