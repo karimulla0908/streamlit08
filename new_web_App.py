@@ -56,13 +56,15 @@ if calculate_button:
     
     # Check if we reject the null hypothesis
     if p_value > alpha:
-        st.markdown("<h2 class='result-text'>Accept the null hypothesis: The sample variance is an unbiased estimator of the population variance.</h2>", unsafe_allow_html=True)
+        st.markdown("<h2 class='result-text accept'>Accept the null hypothesis: The sample variance is an unbiased estimator of the population variance.</h2>", unsafe_allow_html=True)
     else:
-        st.markdown("<h2 class='result-text'>Reject the null hypothesis: The sample variance is not an unbiased estimator of the population variance.</h2>", unsafe_allow_html=True)
-    
+        st.markdown("<h2 class='result-text reject'>Reject the null hypothesis: The sample variance is not an unbiased estimator of the population variance.</h2>", unsafe_allow_html=True)
+    st.markdown("")
+    st.markdown("")
+    st.markdown("")
     # Plotting the variances
     fig, ax = plt.subplots()
-    ax.hist(samples_variance, bins='auto', alpha=0.7, label='Sample Variances', color='#2E8B57')
+    ax.hist(samples_variance, bins='auto', alpha=0.7, label='Sample Variances', color='#3498db')
     ax.axvline(pop_variance, color='r', linestyle='dashed', linewidth=1, label='Population Variance')
     ax.axvline(sample_mean_var, color='g', linestyle='dashed', linewidth=1, label='Mean of Sample Variances')
     ax.legend()
