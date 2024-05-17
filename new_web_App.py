@@ -19,7 +19,7 @@ sample_size = st.sidebar.number_input("Sample size", min_value=10, max_value=100
 
 st.sidebar.markdown("<div class='section-title'>Sampling Parameters</div>", unsafe_allow_html=True)
 no_of_samples = st.sidebar.slider("Number of samples", min_value=1, max_value=100, value=10, step=1)
-alpha = st.sidebar.slider("Significance level (alpha)", min_value=0.01, max_value=0.10, value=0.05, step=0.01)
+alpha = 0.05
 
 calculate_button = st.sidebar.button("Calculate Variance of Samples")
 
