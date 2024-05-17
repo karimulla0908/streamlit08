@@ -62,11 +62,11 @@ if calculate_button:
     
     # Plotting the variances
     fig, ax = plt.subplots()
-    ax.hist(samples_variance, bins='auto', alpha=0.7, label='Sample Variances', color='#2E8B57')
-    ax.axvline(pop_variance, color='r', linestyle='dashed', linewidth=1, label='Population Variance')
-    ax.axvline(sample_mean_var, color='g', linestyle='dashed', linewidth=1, label='Mean of Sample Variances')
+    sns.histplot(samples_variance, kde=True, color='#2E8B57', ax=ax)
+    ax.axvline(p_value, color='r', linestyle='dashed', linewidth=1, label='P-value')
+    ax.axvline(alpha, color='g', linestyle='dashed', linewidth=1, label='Alpha')
     ax.legend()
-    ax.set_title('Distribution of Sample Variances')
+    ax.set_title('Distribution of Sample Variances with KDE')
     ax.set_xlabel('Variance')
     ax.set_ylabel('Frequency')
     
