@@ -48,11 +48,11 @@
     padding: 10px 20px;
     font-size: 18px;
     font-family: 'Arial', sans-serif;
-    transition: background-color 0.5s, transform 1.1s;
+    transition: background-color 0.5s, transform 0.3s;
 }
 .stButton > button:hover {
     background-color: #45a049;
-    transform: scale(1.3);
+    transform: scale(1.05);
 }
 .stSlider > div {
     color: #2E8B57;
