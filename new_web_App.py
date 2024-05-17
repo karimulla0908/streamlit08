@@ -56,7 +56,7 @@ if calculate_button:
     
     # Check if we reject the null hypothesis
     if p_value > alpha:
-        st.markdown("<h2 class='result-text accept'>Accept the null hypothesis: The sample variance is an unbiased estimator of the population variance.</h2>", unsafe_allow_html=True)
+        st.markdown("<h2 class='result-text accept'>Accepting the null hypothesis: The sample variance is an unbiased estimator of the population variance.</h2>", unsafe_allow_html=True)
     else:
         st.markdown("<h2 class='result-text reject'>Reject the null hypothesis: The sample variance is not an unbiased estimator of the population variance.</h2>", unsafe_allow_html=True)
     
