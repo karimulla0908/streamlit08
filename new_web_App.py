@@ -6,7 +6,7 @@ from scipy import stats
 np.random.seed(45)
 
 # Load external CSS
-with open("style.css") as f:
+with open("08 stylecssfile.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 st.markdown("<h1 class='title'>Sample Variance as an Unbiased Estimator of Population Variance</h1>", unsafe_allow_html=True)
