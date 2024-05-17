@@ -64,7 +64,7 @@ if calculate_button:
     st.markdown("")
     # Plotting the variances
     fig, ax = plt.subplots()
-    ax.hist(samples_variance, bins='auto', alpha=0.7, label='Sample Variances', color='#3498db')
+    ax.hist(samples_variance, bins='auto', alpha=0.7, label='Sample Variances', color='r')
     ax.axvline(pop_variance, color='r', linestyle='dashed', linewidth=1, label='Population Variance')
     ax.axvline(sample_mean_var, color='g', linestyle='dashed', linewidth=1, label='Mean of Sample Variances')
     ax.legend()
