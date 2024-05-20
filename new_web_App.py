@@ -17,6 +17,8 @@ st.sidebar.markdown("<div class='section-title'>Population Parameters</div>", un
 population_size = st.sidebar.number_input("Population size", min_value=10, max_value=10000, value=20, step=10)
 sample_size = st.sidebar.number_input("Sample size", min_value=10, max_value=10000, value=20, step=10)
 
+ddof1_sample = st.sidebar.number_input("Degree of freedom", min_value=0, max_value=10, value=1, step=1)
+
 st.sidebar.markdown("<div class='section-title'>Sampling Parameters</div>", unsafe_allow_html=True)
 no_of_samples = st.sidebar.slider("Number of samples", min_value=1, max_value=100, value=10, step=1)
 alpha = 0.05
@@ -28,7 +30,7 @@ def calculate_variance(population, sample_size, no_of_samples):
     pop_variance = np.var(population, ddof=0)
     for _ in range(no_of_samples):
         sample = np.random.choice(population, sample_size)
-        sample_variance = np.var(sample, ddof=1)
+        sample_variance = np.var(sample, ddof=ddof1_sample)
         samples_var.append(sample_variance)
     return pop_variance, samples_var
 
@@ -54,9 +56,18 @@ if calculate_button:
     st.markdown(f"<h2 class='result-text'>T-statistic: {t_statistic:.2f}</h2>", unsafe_allow_html=True)
     st.markdown(f"<h2 class='result-text'>P-value: {p_value:.2f}</h2>", unsafe_allow_html=True)
     
+    # Calculate the confidence interval for the mean of sample variances
+    confidence_level = 0.95
+    degrees_freedom = no_of_samples - 1
+    sample_var_std = np.std(samples_variance, ddof=1)
+    sample_var_se = sample_var_std / np.sqrt(no_of_samples)
+    confidence_interval = stats.t.interval(confidence_level, degrees_freedom, sample_mean_var, sample_var_se)
+    
+    st.markdown(f"<h2 class='result-text'>Confidence Interval for Average Sample Variance: ({confidence_interval[0]:.2f}, {confidence_interval[1]:.2f})</h2>", unsafe_allow_html=True)
+    
     # Check if we reject the null hypothesis
     if p_value > alpha:
-        st.markdown("<h2 class='result-text accept'>Accepting the null hypothesis: The sample variance is an unbiased estimator of the population variance.</h2>", unsafe_allow_html=True)
+        st.markdown("<h2 class='result-text accept'>Accept the null hypothesis: The sample variance is an unbiased estimator of the population variance.</h2>", unsafe_allow_html=True)
     else:
         st.markdown("<h2 class='result-text reject'>Reject the null hypothesis: The sample variance is not an unbiased estimator of the population variance.</h2>", unsafe_allow_html=True)
     
