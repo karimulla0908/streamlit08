@@ -18,11 +18,14 @@ st.sidebar.markdown("<div class='section-title'>Population Size</div>", unsafe_a
 
 population_size = 10000
 st.sidebar.markdown(population_size)
+
+st.sidebar.markdown("<div class='section-title'>Sample Parameters</div>", unsafe_allow_html=True)
+
 sample_size = st.sidebar.number_input("Sample size", min_value=10, max_value=10000, value=20, step=10)
 
 ddof1_sample = st.sidebar.number_input("Degree of freedom", min_value=0, max_value=10, value=1, step=1)
 
-st.sidebar.markdown("<div class='section-title'>Sample Parameters</div>", unsafe_allow_html=True)
+
 no_of_samples = st.sidebar.number_input("Number of samples", min_value=10, max_value=10000, value=10, step=1)
 alpha = 0.05
 
