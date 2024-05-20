@@ -58,7 +58,7 @@ if calculate_button:
     
     # Calculate the confidence interval for the mean of sample variances
     confidence_level = 0.95
-    degrees_freedom = no_of_samples - 1
+    degrees_freedom = ddof1_sample
     sample_var_std = np.std(samples_variance, ddof=1)
     sample_var_se = sample_var_std / np.sqrt(no_of_samples)
     confidence_interval = stats.t.interval(confidence_level, degrees_freedom, sample_mean_var, sample_var_se)
