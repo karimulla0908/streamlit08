@@ -78,7 +78,7 @@ if calculate_button:
     ax.axvline(pop_variance, color='r', linestyle='dashed', linewidth=1, label='Population Variance')
     ax.axvline(sample_mean_var, color='g', linestyle='dashed', linewidth=1, label='Mean of Sample Variances')
     ax.legend()
-    ax.set_title('Distribution of Sample Variances')
+    ax.set_title('Distribution of Sample std')
     ax.set_xlabel('Variance')
     ax.set_ylabel('Frequency')
     
