@@ -20,17 +20,17 @@ sample_size = st.sidebar.number_input("Sample size", min_value=10, max_value=100
 ddof1_sample = st.sidebar.number_input("Degree of freedom", min_value=0, max_value=10, value=1, step=1)
 
 st.sidebar.markdown("<div class='section-title'>Sampling Parameters</div>", unsafe_allow_html=True)
-no_of_samples = st.sidebar.slider("Number of samples", min_value=1, max_value=100, value=10, step=1)
+no_of_samples = st.sidebar.number_input("Number of samples", min_value=1, max_value=100, value=10, step=1)
 alpha = 0.05
 
 calculate_button = st.sidebar.button("Calculate Variance of Samples")
 
 def calculate_variance(population, sample_size, no_of_samples):
     samples_var = []
-    pop_variance = np.var(population, ddof=0)
+    pop_variance = np.std(population, ddof=0)
     for _ in range(no_of_samples):
         sample = np.random.choice(population, sample_size)
-        sample_variance = np.var(sample, ddof=ddof1_sample)
+        sample_variance = np.std(sample, ddof=ddof1_sample)
         samples_var.append(sample_variance)
     return pop_variance, samples_var
 
@@ -38,7 +38,7 @@ if calculate_button:
     population = np.random.normal(loc=50, scale=2, size=population_size)
     pop_variance, samples_variance = calculate_variance(population, sample_size, no_of_samples)
     
-    st.markdown(f"<h3 class='highlight'>Population variance: {pop_variance:.2f}</h3>", unsafe_allow_html=True)
+    st.markdown(f"<h3 class='highlight'>Population Standard deviation: {pop_variance:.2f}</h3>", unsafe_allow_html=True)
     st.write("Sample variances:")
     
     sample_var_str = "<div class='sample-var-container'>"
@@ -52,7 +52,7 @@ if calculate_button:
     sample_mean_var = np.mean(samples_variance)
     t_statistic, p_value = stats.ttest_1samp(samples_variance, pop_variance)
     
-    st.markdown(f"<h2 class='result-text'>Average sample variance: {sample_mean_var:.2f}</h2>", unsafe_allow_html=True)
+    st.markdown(f"<h2 class='result-text'>Average sample standard deviation: {sample_mean_var:.2f}</h2>", unsafe_allow_html=True)
     st.markdown(f"<h2 class='result-text'>T-statistic: {t_statistic:.2f}</h2>", unsafe_allow_html=True)
     st.markdown(f"<h2 class='result-text'>P-value: {p_value:.2f}</h2>", unsafe_allow_html=True)
     
