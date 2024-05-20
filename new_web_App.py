@@ -38,7 +38,7 @@ if calculate_button:
     population = np.random.normal(loc=50, scale=2, size=population_size)
     pop_variance, samples_variance = calculate_variance(population, sample_size, no_of_samples)
     
-    st.markdown(f"<h3 class='highlight'>Population Standard deviation: {pop_variance:.2f}</h3>", unsafe_allow_html=True)
+    
     st.write("Sample variances:")
     
     sample_var_str = "<div class='sample-var-container'>"
@@ -52,6 +52,7 @@ if calculate_button:
     sample_mean_var = np.mean(samples_variance)
     t_statistic, p_value = stats.ttest_1samp(samples_variance, pop_variance)
     
+    st.markdown(f"<h3 class='highlight'>Population Standard deviation: {pop_variance:.2f}</h3>", unsafe_allow_html=True)
     st.markdown(f"<h2 class='result-text'>Average sample standard deviation: {sample_mean_var:.2f}</h2>", unsafe_allow_html=True)
     st.markdown(f"<h2 class='result-text'>T-statistic: {t_statistic:.2f}</h2>", unsafe_allow_html=True)
     st.markdown(f"<h2 class='result-text'>P-value: {p_value:.2f}</h2>", unsafe_allow_html=True)
