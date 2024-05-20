@@ -63,7 +63,7 @@ if calculate_button:
     sample_var_se = sample_var_std / np.sqrt(no_of_samples)
     confidence_interval = stats.t.interval(confidence_level, degrees_freedom, sample_mean_var, sample_var_se)
     
-    st.markdown(f"<h2 class='result-text'>Confidence Interval for Average Sample Variance: ({confidence_interval[0]:.2f}, {confidence_interval[1]:.2f})</h2>", unsafe_allow_html=True)
+    st.markdown(f"<h2 class='result-text'>Confidence Interval for Average Sample standard deviation: ({confidence_interval[0]:.2f}, {confidence_interval[1]:.2f})</h2>", unsafe_allow_html=True)
     
     # Check if we reject the null hypothesis
     if p_value > alpha:
@@ -73,7 +73,7 @@ if calculate_button:
     
     # Plotting the variances
     fig, ax = plt.subplots()
-    ax.hist(samples_variance, bins='auto', alpha=0.7, label='Sample Variances', color='#3498db')
+    ax.hist(samples_variance, bins='auto', alpha=0.7, label='Sample std', color='#3498db')
     ax.axvline(pop_variance, color='r', linestyle='dashed', linewidth=1, label='Population Variance')
     ax.axvline(sample_mean_var, color='g', linestyle='dashed', linewidth=1, label='Mean of Sample Variances')
     ax.legend()
