@@ -79,7 +79,7 @@ if calculate_button:
     ax.axvline(sample_mean_var, color='g', linestyle='dashed', linewidth=1, label='Mean of Sample Variances')
     ax.legend()
     ax.set_title('Distribution of Sample std')
-    ax.set_xlabel('Variance')
+    ax.set_xlabel('Standard Deviation')
     ax.set_ylabel('Frequency')
     
     st.pyplot(fig)
